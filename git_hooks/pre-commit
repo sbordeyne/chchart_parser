@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-poetry run pylama
+# poetry run pylama
 poetry run pytest
