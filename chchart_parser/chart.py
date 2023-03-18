@@ -1,4 +1,5 @@
 from collections import defaultdict
+from hashlib import md5
 import io
 from pathlib import Path
 import re
@@ -42,6 +43,10 @@ class Chart:
         self._sync = None
         self._events = None
         self._charts = None
+
+    @property
+    def checksum(self) -> str:
+        return md5(self.raw_data.encode('utf8')).hexdigest().upper()
 
     @property
     def metadata(self) -> ChartMetadata:
